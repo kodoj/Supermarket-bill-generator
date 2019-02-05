@@ -12,4 +12,12 @@ public class PricesAndPromoReaderTest {
         String expectedResult = "1001";
         assertEquals(expectedResult, pricesAndPromoReader.getProductPrices()[0][0]);
     }
+
+    @Test
+    void checkIfLastElementOfProductPricesFileIsReadProperly() {
+        PricesAndPromoReader pricesAndPromoReader = new PricesAndPromoReader("productPrices.txt");
+        pricesAndPromoReader.readPrices();
+        String expectedResult = "1.90";
+        assertEquals(expectedResult, pricesAndPromoReader.getProductPrices()[4][3]);
+    }
 }

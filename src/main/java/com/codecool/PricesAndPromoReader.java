@@ -35,10 +35,11 @@ public class PricesAndPromoReader {
                 }
             });
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (URISyntaxException ex) {
-            ex.printStackTrace();
+        } catch (Exception e){
+            if (e instanceof IOException || e instanceof URISyntaxException) {
+                e.printStackTrace();
+                System.out.println("No File Found");
+            }
         }
     }
 
