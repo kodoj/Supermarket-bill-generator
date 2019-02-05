@@ -20,7 +20,7 @@ public class PricesAndPromoReader {
     }
 
 
-    public void readPrices() {
+    public String[][] readPrices() {
         try (Stream<String> stream = Files.lines(Paths.get(ClassLoader.getSystemResource(fileName).toURI()))) {
 
             stream.forEach(line -> {
@@ -34,13 +34,13 @@ public class PricesAndPromoReader {
                     size++;
                 }
             });
-
         } catch (Exception e){
             if (e instanceof IOException || e instanceof URISyntaxException) {
                 e.printStackTrace();
                 System.out.println("No File Found");
             }
         }
+        return productPrices;
     }
 
 
